@@ -21,7 +21,10 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from rest_framework.routers import DefaultRouter
 from bookmarks.views import BookmarkViewSet
 from bookmarks.views import *
+from django.http import HttpResponse
 
+def index(request):
+    return HttpResponse("Welcome to Bookmark Tracker!")
 
 router = DefaultRouter()
 router.register(r'bookmarks', BookmarkViewSet, basename='bookmark')
