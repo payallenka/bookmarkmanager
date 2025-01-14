@@ -29,10 +29,11 @@ router.register(r'bookmarks', BookmarkViewSet, basename='bookmark')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', index, name='index'), 
     path('api/', include(router.urls)),  
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'), 
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/bookmarks/list/', BookmarkListView.as_view(), name='bookmark-list'),
-     path('api/signup/', UserRegistrationView.as_view(), name='signup'),
+    path('api/signup/', UserRegistrationView.as_view(), name='signup'),
 
 ]
