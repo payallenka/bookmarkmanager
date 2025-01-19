@@ -11,14 +11,14 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-from django.contrib.auth.models import User
-import os
+# from django.contrib.auth.models import User
+# import os
 
-if os.environ.get('DJANGO_SUPERUSER_CREATED', 'False') == 'False':
-    if not User.objects.filter(username='payallenka').exists():
-        User.objects.create_superuser('payallenka', 'payalm.lenka@gmail.com', 'payal@123')
-        print("Superuser created successfully!")
-        os.environ['DJANGO_SUPERUSER_CREATED'] = 'True'
+# if os.environ.get('DJANGO_SUPERUSER_CREATED', 'False') == 'False':
+#     if not User.objects.filter(username='payallenka').exists():
+#         User.objects.create_superuser('payallenka', 'payalm.lenka@gmail.com', 'payal@123')
+#         print("Superuser created successfully!")
+#         os.environ['DJANGO_SUPERUSER_CREATED'] = 'True'
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
