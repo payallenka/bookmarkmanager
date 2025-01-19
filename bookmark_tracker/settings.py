@@ -64,7 +64,7 @@ REST_FRAMEWORK = {
 }
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3001',  
+    'https://bkmanager-payal-lenkas-projects.vercel.app/',  
     'https://bookmarkmanager-dq8p.onrender.com',
 ]
 
