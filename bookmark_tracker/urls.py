@@ -21,7 +21,10 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from rest_framework.routers import DefaultRouter
 from bookmarks.views import BookmarkViewSet
 from bookmarks.views import *
+from django.http import HttpResponse
 
+def index(request):
+    return HttpResponse("Welcome to Bookmark Tracker!")
 
 router = DefaultRouter()
 router.register(r'bookmarks', BookmarkViewSet, basename='bookmark')
@@ -29,10 +32,11 @@ router.register(r'bookmarks', BookmarkViewSet, basename='bookmark')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', index, name='index'), 
     path('api/', include(router.urls)),  
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'), 
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/bookmarks/list/', BookmarkListView.as_view(), name='bookmark-list'),
-     path('api/signup/', UserRegistrationView.as_view(), name='signup'),
+    path('api/signup/', UserRegistrationView.as_view(), name='signup'),
 
 ]
