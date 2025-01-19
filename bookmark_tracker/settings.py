@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os 
+
+port = os.environ.get('PORT', 8000)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +28,7 @@ SECRET_KEY = 'django-insecure-6-w%h_*s(2^2*^zf)#bc!*hksy5ae!m#ry5v6w!z)x@5l-j5v=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost','bookmarkmanager.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost','bookmarkmanager-dq8p.onrender.com']
 
 
 
@@ -55,7 +58,8 @@ REST_FRAMEWORK = {
 }
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3001',  # Allow your frontend's origin
+    'http://localhost:3001',  
+    'https://bookmarkmanager-dq8p.onrender.com',
 ]
 
 MIDDLEWARE = [
@@ -141,3 +145,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+if __name__ == '__main__':
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'bookmark_tracker.settings')
+    from django.core.management import execute_from_command_line
+    execute_from_command_line(['manage.py', 'runserver', f'0.0.0.0:{port}'])
